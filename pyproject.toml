@@ -13,7 +13,7 @@ logs
 [tool.ruff]
 line-length = 88
 target-version = "py312"
-extend-exclude = ["venv", ".venv", "artifacts", "logs"]
+extend-exclude = ["venv", ".venv", "artifacts", "logs", "**/*.ipynb"]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "W", "N", "UP", "B"]

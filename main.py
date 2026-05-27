@@ -40,3 +40,17 @@ try:
     logger.info(f">>>>>>> Stage {STAGE_NAME} completed <<<<<<<\n\nx==========x")
 except Exception as e:
     logger.exception(e)
+
+STAGE_NAME = "Model Trainer Stage"
+
+try:
+    logger.info(f">>>>>>> Stage {STAGE_NAME} started <<<<<<<")
+    from src.mlops1_data_science_project.pipeline.model_trainer_pipeline import (
+        ModelTrainerPipeline,
+    )
+
+    pipeline = ModelTrainerPipeline()
+    pipeline.initiate_model_trainer()
+    logger.info(f">>>>>>> Stage {STAGE_NAME} completed <<<<<<<\n\nx==========x")
+except Exception as e:
+    logger.exception(e)

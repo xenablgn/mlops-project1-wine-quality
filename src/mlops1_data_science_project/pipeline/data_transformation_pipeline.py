@@ -26,7 +26,7 @@ class DataTransformationPipeline:
                 data_transformation = DataTransformation(
                     config=data_transformation_config
                 )
-                data_transformation.train_test_split()
+                data_transformation.train_test_splitting()
         except Exception as e:
             logger.exception(e)
             raise e

@@ -7,6 +7,7 @@ from src.mlops1_data_science_project.entity.config_entity import (
     DataIngestionConfig,
     DataTransformationConfig,
     DataValidationConfig,
+    ModelTrainerConfig,
 )
 from src.mlops1_data_science_project.utils.common import create_directories, read_yaml
 
@@ -57,3 +58,20 @@ class ConfigurationManager:
             root_dir=config.root_dir, data_path=config.data_path
         )
         return data_transformation_config
+
+    def get_model_trainer_config(self) -> ModelTrainerConfig:
+        config = self.config.model_trainer
+        params = self.params.ElasticNet
+        target_column = self.schema.TARGET_COLUMN.name
+        create_directories([config.root_dir])
+
+        model_trainer_config = ModelTrainerConfig(
+            root_dir=config.root_dir,
+            train_data_path=config.train_data_path,
+            test_data_path=config.test_data_path,
+            model_name=config.model_name,
+            alpha=params.alpha,
+            l1_ratio=params.l1_ratio,
+            target_column=target_column,
+        )
+        return model_trainer_config
