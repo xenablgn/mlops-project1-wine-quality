@@ -1,1 +1,10 @@
 venv/
+logs/
+artifacts/
+__pycache__/
+.ipynb_checkpoints/
+*.pyc
+*.pyo
+*.pyd
+*.zip
+*.tar.gz
