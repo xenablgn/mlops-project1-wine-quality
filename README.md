@@ -25,49 +25,15 @@ This project includes a Ruff-first code quality workflow for all Python code.
 
 Configuration sources:
 
+## brew install go-task/tap/go-task   # mac
+
 - `pyproject.toml`: central lint/format settings (`ruff`, `black` defaults).
 - `.pre-commit-config.yaml`: pre-commit hooks (`ruff --fix`, `ruff-format`).
 - `.github/workflows/ci.yml`: CI checks for lint and format validation.
+- `Taskfile.yml`: local automation
 
-### 1. Install dev tools
-
-```bash
-python -m pip install -r requirements-dev.txt
-```
-
-### 2. Run formatter locally
-
-```bash
-ruff format .
-```
-
-### 3. Run lint checks locally
-
-```bash
-ruff check .
-```
-
-### 4. Auto-fix lint issues
-
-```bash
-ruff check . --fix
-```
-
-### 5. Enable pre-commit hooks
-
-```bash
-python -m pre_commit install
-pre-commit run --all-files
-```
-
-### 6. CI validation
-
-Your CI pipeline runs the following checks on every push and pull request:
-
-```bash
-ruff check .
-ruff format --check .
-```
+### 1. Install dev tools:
+- brew install go-task/tap/go-task 
 
 ### VS Code Tasks
 
