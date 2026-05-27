@@ -1,12 +1,14 @@
-import os
-import yaml
-from src.mlops1_data_science_project import logger
 import json
-import joblib
-from box import ConfigBox
+import os
 from pathlib import Path
 from typing import Any, List
+
+import joblib
+import yaml
+from box import ConfigBox
 from box.exceptions import BoxValueError
+
+from src.mlops1_data_science_project import logger
 
 
 def read_yaml(path_to_yaml: Path) -> ConfigBox:
@@ -31,7 +33,7 @@ def read_yaml(path_to_yaml: Path) -> ConfigBox:
         raise ValueError("yaml file is empty")
     except Exception as e:
         raise e
-        
+
 
 def create_directories(path_to_directories: List[str], verbose: bool = True):
     """create list of directories"""
@@ -41,7 +43,7 @@ def create_directories(path_to_directories: List[str], verbose: bool = True):
 
         if verbose:
             logger.info(f"created directory at: {path}")
-    
+
 
 def save_json(path: Path, data: dict):
     """save json data
@@ -54,6 +56,7 @@ def save_json(path: Path, data: dict):
         json.dump(data, f, indent=4)
 
     logger.info(f"json file saved at: {path}")
+
 
 def load_json(path: Path) -> ConfigBox:
     """load json files data
@@ -70,6 +73,7 @@ def load_json(path: Path) -> ConfigBox:
     logger.info(f"json file loaded succesfully from: {path}")
     return ConfigBox(content)
 
+
 def save_bin(data: Any, path: Path):
     """save binary file
 
@@ -79,6 +83,7 @@ def save_bin(data: Any, path: Path):
     """
     joblib.dump(value=data, filename=path)
     logger.info(f"binary file saved at: {path}")
+
 
 def load_bin(path: Path) -> Any:
     """load binary data

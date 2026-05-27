@@ -1,8 +1,10 @@
-from src.mlops1_data_science_project import logger 
-from src.mlops1_data_science_project.pipeline.data_ingestion_pipeline import DataIngestionPipeline
-from src.mlops1_data_science_project.pipeline.data_validation_pipeline import DataValidationPipeline
-
-
+from src.mlops1_data_science_project import logger
+from src.mlops1_data_science_project.pipeline.data_ingestion_pipeline import (
+    DataIngestionPipeline,
+)
+from src.mlops1_data_science_project.pipeline.data_validation_pipeline import (
+    DataValidationPipeline,
+)
 
 STAGE_NAME = "Data Ingestion Stage"
 

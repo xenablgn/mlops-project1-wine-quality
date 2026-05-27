@@ -1,11 +1,10 @@
+import logging
 import os
 from pathlib import Path
-import logging
 
+project_name = "mlops1_data_science_project"
 
-project_name="mlops1_data_science_project"
-
-list_of_files=[
+list_of_files = [
     ".github/workflows/.gitkeep",
     f"src/{project_name}/__init__.py",
     f"src/{project_name}/components/__init__.py",
@@ -24,22 +23,20 @@ list_of_files=[
     "Dockerfile",
     "setup.py",
     "research/research.ipynb",
-    "templates/index.html", 
-
-    ]
+    "templates/index.html",
+]
 
 for filepath in list_of_files:
-    filepath=Path(filepath)
-    filedir,filename=os.path.split(filepath)
+    filepath = Path(filepath)
+    filedir, filename = os.path.split(filepath)
 
-    if filedir!="":
-        os.makedirs(filedir,exist_ok=True)
+    if filedir != "":
+        os.makedirs(filedir, exist_ok=True)
         logging.info("Created directory: %s", filedir)
 
-    if (not os.path.exists(filepath)) or (os.path.getsize(filepath)==0):
-        with open(filepath,'w') as f:
+    if (not os.path.exists(filepath)) or (os.path.getsize(filepath) == 0):
+        with open(filepath, "w") as f:
             pass
         logging.info("Created file: %s", filepath)
     else:
         logging.info("File already exists: %s", filepath)
- 

@@ -1,4 +1,5 @@
 import pandas as pd
+
 from src.mlops1_data_science_project import logger
 from src.mlops1_data_science_project.entity.config_entity import DataValidationConfig
 
@@ -20,7 +21,6 @@ class DataValidation:
             extra_cols = all_cols - all_schema_cols
 
             with open(self.config.STATUS_FILE, "w") as f:
-
                 if missing_cols:
                     validation_status = False
 
