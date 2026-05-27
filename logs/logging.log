@@ -44,3 +44,350 @@ x==========x]
 [2026-05-27 16:56:24,417: INFO: main: >>>>>>> Stage Data Validation Stage completed <<<<<<<
 
 x==========x]
+[2026-05-27 18:46:56,569: INFO: main: >>>>>>> Stage Data Ingestion Stage started <<<<<<<]
+[2026-05-27 18:46:56,570: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2026-05-27 18:46:56,570: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-05-27 18:46:56,571: INFO: common: yaml file: schema.yaml loaded successfully]
+[2026-05-27 18:46:56,571: INFO: common: created directory at: artifacts]
+[2026-05-27 18:46:56,571: INFO: common: created directory at: artifacts/data_ingestion]
+[2026-05-27 18:46:56,571: INFO: data_ingestion: File already exists]
+[2026-05-27 18:46:56,572: INFO: main: >>>>>>> Stage Data Ingestion Stage completed <<<<<<<
+
+x==========x]
+[2026-05-27 18:46:56,572: INFO: main: >>>>>>> Stage Data Validation Stage started <<<<<<<]
+[2026-05-27 18:46:56,572: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2026-05-27 18:46:56,572: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-05-27 18:46:56,572: INFO: common: yaml file: schema.yaml loaded successfully]
+[2026-05-27 18:46:56,572: INFO: common: created directory at: artifacts]
+[2026-05-27 18:46:56,572: INFO: common: created directory at: artifacts/data_validation]
+[2026-05-27 18:46:56,574: INFO: data_validation: All columns are valid]
+[2026-05-27 18:46:56,574: INFO: main: >>>>>>> Stage Data Validation Stage completed <<<<<<<
+
+x==========x]
+[2026-05-27 18:46:56,574: INFO: main: >>>>>>> Stage Data Transformation Stage started <<<<<<<]
+[2026-05-27 18:46:56,574: ERROR: data_transformation_pipeline: [Errno 2] No such file or directory: 'artifacts/data_validation/validation_status.txt']
+Traceback (most recent call last):
+  File "/Users/xenan.bilgin/Projects/MLops/mlops-project1-wine-quality/src/mlops1_data_science_project/pipeline/data_transformation_pipeline.py", line 11, in initiate_data_transformation
+    with open("artifacts/data_validation/validation_status.txt", "r") as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'artifacts/data_validation/validation_status.txt'
+[2026-05-27 18:46:56,574: ERROR: main: [Errno 2] No such file or directory: 'artifacts/data_validation/validation_status.txt']
+Traceback (most recent call last):
+  File "/Users/xenan.bilgin/Projects/MLops/mlops-project1-wine-quality/main.py", line 41, in <module>
+    pipeline.initiate_data_transformation()
+  File "/Users/xenan.bilgin/Projects/MLops/mlops-project1-wine-quality/src/mlops1_data_science_project/pipeline/data_transformation_pipeline.py", line 23, in initiate_data_transformation
+    raise e
+  File "/Users/xenan.bilgin/Projects/MLops/mlops-project1-wine-quality/src/mlops1_data_science_project/pipeline/data_transformation_pipeline.py", line 11, in initiate_data_transformation
+    with open("artifacts/data_validation/validation_status.txt", "r") as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'artifacts/data_validation/validation_status.txt'
+[2026-05-27 18:47:13,982: INFO: main: >>>>>>> Stage Data Ingestion Stage started <<<<<<<]
+[2026-05-27 18:47:13,983: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2026-05-27 18:47:13,983: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-05-27 18:47:13,983: INFO: common: yaml file: schema.yaml loaded successfully]
+[2026-05-27 18:47:13,983: INFO: common: created directory at: artifacts]
+[2026-05-27 18:47:13,983: INFO: common: created directory at: artifacts/data_ingestion]
+[2026-05-27 18:47:13,983: INFO: data_ingestion: File already exists]
+[2026-05-27 18:47:13,984: INFO: main: >>>>>>> Stage Data Ingestion Stage completed <<<<<<<
+
+x==========x]
+[2026-05-27 18:47:13,984: INFO: main: >>>>>>> Stage Data Validation Stage started <<<<<<<]
+[2026-05-27 18:47:13,984: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2026-05-27 18:47:13,984: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-05-27 18:47:13,985: INFO: common: yaml file: schema.yaml loaded successfully]
+[2026-05-27 18:47:13,985: INFO: common: created directory at: artifacts]
+[2026-05-27 18:47:13,985: INFO: common: created directory at: artifacts/data_validation]
+[2026-05-27 18:47:13,986: INFO: data_validation: All columns are valid]
+[2026-05-27 18:47:13,986: INFO: main: >>>>>>> Stage Data Validation Stage completed <<<<<<<
+
+x==========x]
+[2026-05-27 18:47:13,986: INFO: main: >>>>>>> Stage Data Transformation Stage started <<<<<<<]
+[2026-05-27 18:47:13,986: INFO: data_transformation_pipeline: Data validation successful. Proceeding with data transformation.]
+[2026-05-27 18:47:13,986: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2026-05-27 18:47:13,986: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-05-27 18:47:13,987: INFO: common: yaml file: schema.yaml loaded successfully]
+[2026-05-27 18:47:13,987: INFO: common: created directory at: artifacts]
+[2026-05-27 18:47:13,987: INFO: common: created directory at: artifacts/data_transformation]
+[2026-05-27 18:47:13,987: ERROR: data_transformation_pipeline: "'ConfigBox' object has no attribute 'data_path'"]
+Traceback (most recent call last):
+  File "box/box.py", line 605, in box.box.Box.__getitem__
+KeyError: 'data_path'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "box/box.py", line 644, in box.box.Box.__getattr__
+  File "box/box.py", line 632, in box.box.Box.__getitem__
+box.exceptions.BoxKeyError: "'data_path'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "box/box.py", line 646, in box.box.Box.__getattr__
+AttributeError: 'ConfigBox' object has no attribute 'data_path'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "box/config_box.py", line 29, in box.config_box.ConfigBox.__getattr__
+  File "box/box.py", line 660, in box.box.Box.__getattr__
+box.exceptions.BoxKeyError: "'ConfigBox' object has no attribute 'data_path'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "box/box.py", line 605, in box.box.Box.__getitem__
+KeyError: 'data_path'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "box/box.py", line 644, in box.box.Box.__getattr__
+  File "box/box.py", line 632, in box.box.Box.__getitem__
+box.exceptions.BoxKeyError: "'data_path'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "box/box.py", line 646, in box.box.Box.__getattr__
+AttributeError: 'ConfigBox' object has no attribute 'data_path'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/xenan.bilgin/Projects/MLops/mlops-project1-wine-quality/src/mlops1_data_science_project/pipeline/data_transformation_pipeline.py", line 18, in initiate_data_transformation
+    data_transformation_config = config.get_data_transformation_config()
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/xenan.bilgin/Projects/MLops/mlops-project1-wine-quality/src/mlops1_data_science_project/config/configuration.py", line 59, in get_data_transformation_config
+    data_path=config.data_path
+              ^^^^^^^^^^^^^^^^
+  File "box/config_box.py", line 31, in box.config_box.ConfigBox.__getattr__
+  File "box/box.py", line 660, in box.box.Box.__getattr__
+box.exceptions.BoxKeyError: "'ConfigBox' object has no attribute 'data_path'"
+[2026-05-27 18:47:13,989: ERROR: main: "'ConfigBox' object has no attribute 'data_path'"]
+Traceback (most recent call last):
+  File "box/box.py", line 605, in box.box.Box.__getitem__
+KeyError: 'data_path'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "box/box.py", line 644, in box.box.Box.__getattr__
+  File "box/box.py", line 632, in box.box.Box.__getitem__
+box.exceptions.BoxKeyError: "'data_path'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "box/box.py", line 646, in box.box.Box.__getattr__
+AttributeError: 'ConfigBox' object has no attribute 'data_path'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "box/config_box.py", line 29, in box.config_box.ConfigBox.__getattr__
+  File "box/box.py", line 660, in box.box.Box.__getattr__
+box.exceptions.BoxKeyError: "'ConfigBox' object has no attribute 'data_path'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "box/box.py", line 605, in box.box.Box.__getitem__
+KeyError: 'data_path'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "box/box.py", line 644, in box.box.Box.__getattr__
+  File "box/box.py", line 632, in box.box.Box.__getitem__
+box.exceptions.BoxKeyError: "'data_path'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "box/box.py", line 646, in box.box.Box.__getattr__
+AttributeError: 'ConfigBox' object has no attribute 'data_path'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/xenan.bilgin/Projects/MLops/mlops-project1-wine-quality/main.py", line 41, in <module>
+    pipeline.initiate_data_transformation()
+  File "/Users/xenan.bilgin/Projects/MLops/mlops-project1-wine-quality/src/mlops1_data_science_project/pipeline/data_transformation_pipeline.py", line 23, in initiate_data_transformation
+    raise e
+  File "/Users/xenan.bilgin/Projects/MLops/mlops-project1-wine-quality/src/mlops1_data_science_project/pipeline/data_transformation_pipeline.py", line 18, in initiate_data_transformation
+    data_transformation_config = config.get_data_transformation_config()
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/xenan.bilgin/Projects/MLops/mlops-project1-wine-quality/src/mlops1_data_science_project/config/configuration.py", line 59, in get_data_transformation_config
+    data_path=config.data_path
+              ^^^^^^^^^^^^^^^^
+  File "box/config_box.py", line 31, in box.config_box.ConfigBox.__getattr__
+  File "box/box.py", line 660, in box.box.Box.__getattr__
+box.exceptions.BoxKeyError: "'ConfigBox' object has no attribute 'data_path'"
+[2026-05-27 18:47:54,236: INFO: main: >>>>>>> Stage Data Ingestion Stage started <<<<<<<]
+[2026-05-27 18:47:54,237: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2026-05-27 18:47:54,237: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-05-27 18:47:54,237: INFO: common: yaml file: schema.yaml loaded successfully]
+[2026-05-27 18:47:54,237: INFO: common: created directory at: artifacts]
+[2026-05-27 18:47:54,237: INFO: common: created directory at: artifacts/data_ingestion]
+[2026-05-27 18:47:54,237: INFO: data_ingestion: File already exists]
+[2026-05-27 18:47:54,238: INFO: main: >>>>>>> Stage Data Ingestion Stage completed <<<<<<<
+
+x==========x]
+[2026-05-27 18:47:54,238: INFO: main: >>>>>>> Stage Data Validation Stage started <<<<<<<]
+[2026-05-27 18:47:54,238: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2026-05-27 18:47:54,238: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-05-27 18:47:54,239: INFO: common: yaml file: schema.yaml loaded successfully]
+[2026-05-27 18:47:54,239: INFO: common: created directory at: artifacts]
+[2026-05-27 18:47:54,239: INFO: common: created directory at: artifacts/data_validation]
+[2026-05-27 18:47:54,240: INFO: data_validation: All columns are valid]
+[2026-05-27 18:47:54,240: INFO: main: >>>>>>> Stage Data Validation Stage completed <<<<<<<
+
+x==========x]
+[2026-05-27 18:47:54,240: INFO: main: >>>>>>> Stage Data Transformation Stage started <<<<<<<]
+[2026-05-27 18:47:54,240: INFO: data_transformation_pipeline: Data validation successful. Proceeding with data transformation.]
+[2026-05-27 18:47:54,240: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2026-05-27 18:47:54,241: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-05-27 18:47:54,241: INFO: common: yaml file: schema.yaml loaded successfully]
+[2026-05-27 18:47:54,241: INFO: common: created directory at: artifacts]
+[2026-05-27 18:47:54,241: INFO: common: created directory at: artifacts/data_transformation]
+[2026-05-27 18:47:54,241: ERROR: data_transformation_pipeline: DataTransformation.train_test_split() missing 1 required positional argument: 'data']
+Traceback (most recent call last):
+  File "/Users/xenan.bilgin/Projects/MLops/mlops-project1-wine-quality/src/mlops1_data_science_project/pipeline/data_transformation_pipeline.py", line 20, in initiate_data_transformation
+    data_transformation.train_test_split()
+TypeError: DataTransformation.train_test_split() missing 1 required positional argument: 'data'
+[2026-05-27 18:47:54,241: ERROR: main: DataTransformation.train_test_split() missing 1 required positional argument: 'data']
+Traceback (most recent call last):
+  File "/Users/xenan.bilgin/Projects/MLops/mlops-project1-wine-quality/main.py", line 41, in <module>
+    pipeline.initiate_data_transformation()
+  File "/Users/xenan.bilgin/Projects/MLops/mlops-project1-wine-quality/src/mlops1_data_science_project/pipeline/data_transformation_pipeline.py", line 23, in initiate_data_transformation
+    raise e
+  File "/Users/xenan.bilgin/Projects/MLops/mlops-project1-wine-quality/src/mlops1_data_science_project/pipeline/data_transformation_pipeline.py", line 20, in initiate_data_transformation
+    data_transformation.train_test_split()
+TypeError: DataTransformation.train_test_split() missing 1 required positional argument: 'data'
+[2026-05-27 18:49:16,367: INFO: main: >>>>>>> Stage Data Ingestion Stage started <<<<<<<]
+[2026-05-27 18:49:16,368: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2026-05-27 18:49:16,368: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-05-27 18:49:16,369: INFO: common: yaml file: schema.yaml loaded successfully]
+[2026-05-27 18:49:16,369: INFO: common: created directory at: artifacts]
+[2026-05-27 18:49:16,369: INFO: common: created directory at: artifacts/data_ingestion]
+[2026-05-27 18:49:16,369: INFO: data_ingestion: File already exists]
+[2026-05-27 18:49:16,369: INFO: main: >>>>>>> Stage Data Ingestion Stage completed <<<<<<<
+
+x==========x]
+[2026-05-27 18:49:16,369: INFO: main: >>>>>>> Stage Data Validation Stage started <<<<<<<]
+[2026-05-27 18:49:16,369: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2026-05-27 18:49:16,370: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-05-27 18:49:16,370: INFO: common: yaml file: schema.yaml loaded successfully]
+[2026-05-27 18:49:16,370: INFO: common: created directory at: artifacts]
+[2026-05-27 18:49:16,370: INFO: common: created directory at: artifacts/data_validation]
+[2026-05-27 18:49:16,371: INFO: data_validation: All columns are valid]
+[2026-05-27 18:49:16,371: INFO: main: >>>>>>> Stage Data Validation Stage completed <<<<<<<
+
+x==========x]
+[2026-05-27 18:49:16,371: INFO: main: >>>>>>> Stage Data Transformation Stage started <<<<<<<]
+[2026-05-27 18:49:16,371: INFO: data_transformation_pipeline: Data validation successful. Proceeding with data transformation.]
+[2026-05-27 18:49:16,372: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2026-05-27 18:49:16,372: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-05-27 18:49:16,372: INFO: common: yaml file: schema.yaml loaded successfully]
+[2026-05-27 18:49:16,372: INFO: common: created directory at: artifacts]
+[2026-05-27 18:49:16,372: INFO: common: created directory at: artifacts/data_transformation]
+[2026-05-27 18:49:16,374: ERROR: data_transformation_pipeline: unsupported operand type(s) for /: 'str' and 'str']
+Traceback (most recent call last):
+  File "/Users/xenan.bilgin/Projects/MLops/mlops-project1-wine-quality/src/mlops1_data_science_project/pipeline/data_transformation_pipeline.py", line 20, in initiate_data_transformation
+    data_transformation.train_test_split()
+  File "/Users/xenan.bilgin/Projects/MLops/mlops-project1-wine-quality/src/mlops1_data_science_project/components/data_transformation.py", line 16, in train_test_split
+    train_data.to_csv(self.config.root_dir / "train_data.csv", index=False)
+                      ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for /: 'str' and 'str'
+[2026-05-27 18:49:16,374: ERROR: main: unsupported operand type(s) for /: 'str' and 'str']
+Traceback (most recent call last):
+  File "/Users/xenan.bilgin/Projects/MLops/mlops-project1-wine-quality/main.py", line 41, in <module>
+    pipeline.initiate_data_transformation()
+  File "/Users/xenan.bilgin/Projects/MLops/mlops-project1-wine-quality/src/mlops1_data_science_project/pipeline/data_transformation_pipeline.py", line 23, in initiate_data_transformation
+    raise e
+  File "/Users/xenan.bilgin/Projects/MLops/mlops-project1-wine-quality/src/mlops1_data_science_project/pipeline/data_transformation_pipeline.py", line 20, in initiate_data_transformation
+    data_transformation.train_test_split()
+  File "/Users/xenan.bilgin/Projects/MLops/mlops-project1-wine-quality/src/mlops1_data_science_project/components/data_transformation.py", line 16, in train_test_split
+    train_data.to_csv(self.config.root_dir / "train_data.csv", index=False)
+                      ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for /: 'str' and 'str'
+[2026-05-27 18:51:33,156: INFO: main: >>>>>>> Stage Data Ingestion Stage started <<<<<<<]
+[2026-05-27 18:51:33,156: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2026-05-27 18:51:33,156: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-05-27 18:51:33,157: INFO: common: yaml file: schema.yaml loaded successfully]
+[2026-05-27 18:51:33,157: INFO: common: created directory at: artifacts]
+[2026-05-27 18:51:33,157: INFO: common: created directory at: artifacts/data_ingestion]
+[2026-05-27 18:51:33,157: INFO: data_ingestion: File already exists]
+[2026-05-27 18:51:33,157: INFO: main: >>>>>>> Stage Data Ingestion Stage completed <<<<<<<
+
+x==========x]
+[2026-05-27 18:51:33,157: INFO: main: >>>>>>> Stage Data Validation Stage started <<<<<<<]
+[2026-05-27 18:51:33,158: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2026-05-27 18:51:33,158: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-05-27 18:51:33,158: INFO: common: yaml file: schema.yaml loaded successfully]
+[2026-05-27 18:51:33,158: INFO: common: created directory at: artifacts]
+[2026-05-27 18:51:33,158: INFO: common: created directory at: artifacts/data_validation]
+[2026-05-27 18:51:33,159: INFO: data_validation: All columns are valid]
+[2026-05-27 18:51:33,159: INFO: main: >>>>>>> Stage Data Validation Stage completed <<<<<<<
+
+x==========x]
+[2026-05-27 18:51:33,159: INFO: main: >>>>>>> Stage Data Transformation Stage started <<<<<<<]
+[2026-05-27 18:51:33,159: INFO: data_transformation_pipeline: Data validation successful. Proceeding with data transformation.]
+[2026-05-27 18:51:33,160: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2026-05-27 18:51:33,160: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-05-27 18:51:33,160: INFO: common: yaml file: schema.yaml loaded successfully]
+[2026-05-27 18:51:33,160: INFO: common: created directory at: artifacts]
+[2026-05-27 18:51:33,160: INFO: common: created directory at: artifacts/data_transformation]
+[2026-05-27 18:51:33,162: ERROR: data_transformation_pipeline: unsupported operand type(s) for /: 'str' and 'str']
+Traceback (most recent call last):
+  File "/Users/xenan.bilgin/Projects/MLops/mlops-project1-wine-quality/src/mlops1_data_science_project/pipeline/data_transformation_pipeline.py", line 20, in initiate_data_transformation
+    data_transformation.train_test_split()
+  File "/Users/xenan.bilgin/Projects/MLops/mlops-project1-wine-quality/src/mlops1_data_science_project/components/data_transformation.py", line 18, in train_test_split
+    train_data.to_csv(self.config.root_dir / "train_data.csv", index=False)
+                      ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for /: 'str' and 'str'
+[2026-05-27 18:51:33,162: ERROR: main: unsupported operand type(s) for /: 'str' and 'str']
+Traceback (most recent call last):
+  File "/Users/xenan.bilgin/Projects/MLops/mlops-project1-wine-quality/main.py", line 41, in <module>
+    pipeline.initiate_data_transformation()
+  File "/Users/xenan.bilgin/Projects/MLops/mlops-project1-wine-quality/src/mlops1_data_science_project/pipeline/data_transformation_pipeline.py", line 23, in initiate_data_transformation
+    raise e
+  File "/Users/xenan.bilgin/Projects/MLops/mlops-project1-wine-quality/src/mlops1_data_science_project/pipeline/data_transformation_pipeline.py", line 20, in initiate_data_transformation
+    data_transformation.train_test_split()
+  File "/Users/xenan.bilgin/Projects/MLops/mlops-project1-wine-quality/src/mlops1_data_science_project/components/data_transformation.py", line 18, in train_test_split
+    train_data.to_csv(self.config.root_dir / "train_data.csv", index=False)
+                      ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for /: 'str' and 'str'
+[2026-05-27 18:52:23,971: INFO: main: >>>>>>> Stage Data Ingestion Stage started <<<<<<<]
+[2026-05-27 18:52:23,972: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2026-05-27 18:52:23,972: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-05-27 18:52:23,973: INFO: common: yaml file: schema.yaml loaded successfully]
+[2026-05-27 18:52:23,973: INFO: common: created directory at: artifacts]
+[2026-05-27 18:52:23,973: INFO: common: created directory at: artifacts/data_ingestion]
+[2026-05-27 18:52:23,973: INFO: data_ingestion: File already exists]
+[2026-05-27 18:52:23,973: INFO: main: >>>>>>> Stage Data Ingestion Stage completed <<<<<<<
+
+x==========x]
+[2026-05-27 18:52:23,973: INFO: main: >>>>>>> Stage Data Validation Stage started <<<<<<<]
+[2026-05-27 18:52:23,974: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2026-05-27 18:52:23,974: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-05-27 18:52:23,974: INFO: common: yaml file: schema.yaml loaded successfully]
+[2026-05-27 18:52:23,974: INFO: common: created directory at: artifacts]
+[2026-05-27 18:52:23,974: INFO: common: created directory at: artifacts/data_validation]
+[2026-05-27 18:52:23,975: INFO: data_validation: All columns are valid]
+[2026-05-27 18:52:23,975: INFO: main: >>>>>>> Stage Data Validation Stage completed <<<<<<<
+
+x==========x]
+[2026-05-27 18:52:23,975: INFO: main: >>>>>>> Stage Data Transformation Stage started <<<<<<<]
+[2026-05-27 18:52:23,975: INFO: data_transformation_pipeline: Data validation successful. Proceeding with data transformation.]
+[2026-05-27 18:52:23,976: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2026-05-27 18:52:23,976: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-05-27 18:52:23,976: INFO: common: yaml file: schema.yaml loaded successfully]
+[2026-05-27 18:52:23,976: INFO: common: created directory at: artifacts]
+[2026-05-27 18:52:23,976: INFO: common: created directory at: artifacts/data_transformation]
+[2026-05-27 18:52:23,982: INFO: data_transformation: Train and test data saved at artifacts/data_transformation]
+[2026-05-27 18:52:23,983: INFO: data_transformation: Train data shape: (1279, 12), Test data shape: (320, 12)]
+[2026-05-27 18:52:23,983: INFO: main: >>>>>>> Stage Data Transformation Stage completed <<<<<<<
+
+x==========x]

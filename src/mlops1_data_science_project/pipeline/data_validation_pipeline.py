@@ -14,6 +14,7 @@ class DataValidationPipeline:
             data_validation = DataValidation(config=data_validation_config)
             data_validation.validate_all_columns()
         except Exception as e:
+            logger.exception(e)
             raise e
 
 
