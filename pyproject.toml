@@ -1,6 +1,6 @@
 [tool.black]
 line-length = 88
-target-version = ["py39"]
+target-version = ["py312"]
 include = "\\.pyi?$"
 extend-exclude = """
 .git
@@ -12,7 +12,7 @@ logs
 
 [tool.ruff]
 line-length = 88
-target-version = "py39"
+target-version = "py312"
 extend-exclude = ["venv", ".venv", "artifacts", "logs"]
 
 [tool.ruff.lint]
