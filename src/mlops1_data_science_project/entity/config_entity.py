@@ -33,3 +33,14 @@ class ModelTrainerConfig:
     alpha: float
     l1_ratio: float
     target_column: str
+
+
+@dataclass
+class ModelEvaluationConfig:
+    root_dir: str
+    test_data_path: str
+    model_path: str
+    all_params: dict
+    metric_file_name: str
+    target_column: str
+    mlflow_uri: str

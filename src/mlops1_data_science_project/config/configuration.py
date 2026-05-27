@@ -1,5 +1,10 @@
+import os
+
 from src.mlops1_data_science_project.constants import (
     CONFIG_FILE_PATH,
+    MLFLOW_TRACKING_PASSWORD,
+    MLFLOW_TRACKING_URI,
+    MLFLOW_TRACKING_USERNAME,
     PARAMS_FILE_PATH,
     SCHEMA_FILE_PATH,
 )
@@ -7,9 +12,14 @@ from src.mlops1_data_science_project.entity.config_entity import (
     DataIngestionConfig,
     DataTransformationConfig,
     DataValidationConfig,
+    ModelEvaluationConfig,
     ModelTrainerConfig,
 )
 from src.mlops1_data_science_project.utils.common import create_directories, read_yaml
+
+os.environ["MLFLOW_TRACKING_URI"] = MLFLOW_TRACKING_URI
+os.environ["MLFLOW_TRACKING_USERNAME"] = MLFLOW_TRACKING_USERNAME
+os.environ["MLFLOW_TRACKING_PASSWORD"] = MLFLOW_TRACKING_PASSWORD
 
 
 class ConfigurationManager:
@@ -75,3 +85,22 @@ class ConfigurationManager:
             target_column=target_column,
         )
         return model_trainer_config
+
+    def get_model_eval_config(self) -> ModelEvaluationConfig:
+        config = self.config.model_evaluation
+        params = self.params.ElasticNet
+        schema = self.schema.TARGET_COLUMN.name
+        create_directories([config.root_dir])
+        mlflow_uri = MLFLOW_TRACKING_URI
+
+        model_eval_config = ModelEvaluationConfig(
+            root_dir=config.root_dir,
+            test_data_path=config.test_data_path,
+            model_path=config.model_path,
+            all_params=params,
+            metric_file_name=config.metric_file_name,
+            target_column=schema,
+            mlflow_uri=mlflow_uri,
+        )
+
+        return model_eval_config

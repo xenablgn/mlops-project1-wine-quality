@@ -8,6 +8,12 @@ from src.mlops1_data_science_project.pipeline.data_transformation_pipeline impor
 from src.mlops1_data_science_project.pipeline.data_validation_pipeline import (
     DataValidationPipeline,
 )
+from src.mlops1_data_science_project.pipeline.model_evaluator_pipeline import (
+    ModelEvaluatorPipeline,
+)
+from src.mlops1_data_science_project.pipeline.model_trainer_pipeline import (
+    ModelTrainerPipeline,
+)
 
 STAGE_NAME = "Data Ingestion Stage"
 
@@ -45,12 +51,17 @@ STAGE_NAME = "Model Trainer Stage"
 
 try:
     logger.info(f">>>>>>> Stage {STAGE_NAME} started <<<<<<<")
-    from src.mlops1_data_science_project.pipeline.model_trainer_pipeline import (
-        ModelTrainerPipeline,
-    )
-
     pipeline = ModelTrainerPipeline()
     pipeline.initiate_model_trainer()
+    logger.info(f">>>>>>> Stage {STAGE_NAME} completed <<<<<<<\n\nx==========x")
+except Exception as e:
+    logger.exception(e)
+
+STAGE_NAME = "Model Evaluation Stage"
+try:
+    logger.info(f">>>>>>> Stage {STAGE_NAME} started <<<<<<<")
+    pipeline = ModelEvaluatorPipeline()
+    pipeline.initiate_model_evaluation()
     logger.info(f">>>>>>> Stage {STAGE_NAME} completed <<<<<<<\n\nx==========x")
 except Exception as e:
     logger.exception(e)
