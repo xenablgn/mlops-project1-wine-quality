@@ -1,4 +1,8 @@
-from src.mlops1_data_science_project.constants import *
+from src.mlops1_data_science_project.constants import (
+    CONFIG_FILE_PATH,
+    PARAMS_FILE_PATH,
+    SCHEMA_FILE_PATH,
+)
 from src.mlops1_data_science_project.entity.config_entity import (
     DataIngestionConfig,
     DataValidationConfig,
@@ -25,7 +29,7 @@ class ConfigurationManager:
 
         data_ingestion_config = DataIngestionConfig(
             root_dir=config.root_dir,
-            source_URL=config.source_URL,
+            source_url=config.source_URL,
             local_data_file=config.local_data_file,
             unzip_dir=config.unzip_dir,
         )

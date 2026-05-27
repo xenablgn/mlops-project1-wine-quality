@@ -21,7 +21,13 @@
 
 ## Code Quality (Format + Lint)
 
-This project now includes a full code-cleaning workflow for all Python code.
+This project includes a Ruff-first code quality workflow for all Python code.
+
+Configuration sources:
+
+- `pyproject.toml`: central lint/format settings (`ruff`, `black` defaults).
+- `.pre-commit-config.yaml`: pre-commit hooks (`ruff --fix`, `ruff-format`).
+- `.github/workflows/ci.yml`: CI checks for lint and format validation.
 
 ### 1. Install dev tools
 
@@ -29,30 +35,38 @@ This project now includes a full code-cleaning workflow for all Python code.
 python -m pip install -r requirements-dev.txt
 ```
 
-### 2. Run formatter
+### 2. Run formatter locally
 
 ```bash
-python -m ruff format .
-python -m isort .
+ruff format .
 ```
 
-### 3. Run lint checks
+### 3. Run lint checks locally
 
 ```bash
-python -m ruff check .
+ruff check .
 ```
 
 ### 4. Auto-fix lint issues
 
 ```bash
-python -m ruff check . --fix
+ruff check . --fix
 ```
 
-### 5. Optional: run checks before each commit
+### 5. Enable pre-commit hooks
 
 ```bash
 python -m pre_commit install
 pre-commit run --all-files
+```
+
+### 6. CI validation
+
+Your CI pipeline runs the following checks on every push and pull request:
+
+```bash
+ruff check .
+ruff format --check .
 ```
 
 ### VS Code Tasks

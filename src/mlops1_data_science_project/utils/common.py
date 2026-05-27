@@ -1,7 +1,7 @@
 import json
 import os
 from pathlib import Path
-from typing import Any, List
+from typing import Any
 
 import joblib
 import yaml
@@ -29,13 +29,13 @@ def read_yaml(path_to_yaml: Path) -> ConfigBox:
             content = yaml.safe_load(yaml_file)
             logger.info(f"yaml file: {path_to_yaml} loaded successfully")
             return ConfigBox(content)
-    except BoxValueError:
-        raise ValueError("yaml file is empty")
+    except BoxValueError as err:
+        raise ValueError("yaml file is empty") from err
     except Exception as e:
         raise e
 
 
-def create_directories(path_to_directories: List[str], verbose: bool = True):
+def create_directories(path_to_directories: list[str], verbose: bool = True):
     """create list of directories"""
 
     for path in path_to_directories:
